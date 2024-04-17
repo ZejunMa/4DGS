@@ -139,7 +139,7 @@ def convertSceneInfo(scene_info_waymo):
     train_cameras = []
     test_cameras = []
     for cam_info in scene_info_waymo.train_cameras:
-        PIL_image = Image.fromarray((cam_info.image * 255).astype(np.uint8))
+        PIL_image = Image.fromarray((cam_info.image * 255).astype(np.uint8))#.resize((800, 600))
         camera_info = CameraInfo_new(uid=cam_info.uid,
                                      R=cam_info.R,
                                      T=cam_info.T,
@@ -155,7 +155,7 @@ def convertSceneInfo(scene_info_waymo):
         train_cameras.append(camera_info)
 
     for cam_info in scene_info_waymo.test_cameras:
-        PIL_image = Image.fromarray((cam_info.image * 255).astype(np.uint8))
+        PIL_image = Image.fromarray((cam_info.image * 255).astype(np.uint8))#.resize((800, 600))
         camera_info = CameraInfo_new(uid=cam_info.uid,
                                      R=cam_info.R,
                                      T=cam_info.T,
